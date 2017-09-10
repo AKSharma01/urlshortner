@@ -1,0 +1,1 @@
+from database.tables.UrlShortnerTable import UrlShortner

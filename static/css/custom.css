@@ -1,0 +1,14 @@
+.my-nav-align {
+	cursor: pointer; 
+	padding-right: 17px;
+	padding-top: 3px;
+}
+
+.my-nav-align > div {
+	left: 28px;
+}
+
+
+.form {
+	display: none;
+}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div>
+<form class="form-inline" action="/short" method="post">
+	<div class="form-group">
+		<label for="exampleInputName2">Url</label>
+		<input type="text" class="form-control" id="exampleInputName2"  type="text" name="url" placeholder="http://example.com">
+	</div>
+ 
+  <input type="submit" name="submit" value="Submit" class="btn btn-default">
+</form>
+</div>
+{% if data %}
+	<table class="table table-hover">
+		<tr>
+			<td>Original Url</td>
+			<td>New Url</td>
+			<td>No of Hits</td>
+			<td>Created At</td>
+			<td>Updated At</td>
+			<td>Action</td>
+		</tr>
+		{% for d in data %}
+			<tr>
+				<td>{{d.originalUrl}}</td>
+				<td onclick="apiCall('{{d.shortUrl}}')">{{d.shortUrl}}</td>
+				<td>{{d.noOfHits}}</td>
+				<td>{{d.createdAt}}</td>
+				<td>{{d.updatedAt}}</td>
+				<td>
+					<a href="/json/{{d.shortUrl}}">JSON Object</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endif %}
+<script type="text/javascript">
+	function apiCall(argument) {
+		console.log("lkjhgfghjk, = ",argument);
+		window.location='/'+argument;
+	}
+</script>
+{% endblock %}
